@@ -6,6 +6,7 @@
 
 using namespace std;
 
+// Функція, яка повертає рандомну літерау, базуючись на вибраних налаштуваннях
 char getRandomChar(bool withDigits, bool withUpperChars, bool withSymbols) {
 	int rangeSelector = rand() % 4;
 
@@ -39,6 +40,7 @@ int main()
 	cout << "Введіть довжину пароля (4-32): ";
 	cin >> length;
 
+	// Валідація довжини, якщо вказано менше або більше за можливе, то присвоюється відповідно або максимальне допустиме значення, або мінімальне
 	if (length > 32) {
 		length = 32;
 	}
@@ -46,6 +48,7 @@ int main()
 		length = 4;
 	}
 
+	// Додаткові налаштування паролю
 	cout << "Чи буде містити цифри (yes/no): ";
 	cin >> digitsSetting;
 	cout << "Чи буде містити заглавні букви (yes/no): ";
@@ -64,7 +67,8 @@ int main()
 	if (symbolsSetting == "yes") {
 		withSymbols = true;
 	}
-
+	
+	// Генерація 10 паролів та вивід їх в консоль. Якщо треба більше або менше - можна замінити параметр j в оголошенні цикла for
 	for (int j = 0; j < 10; j++) {
 
 		for (int i = 0; i < length; i++) {
